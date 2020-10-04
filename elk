@@ -1,0 +1,25 @@
+Project : Implement ELK SIEM on Home Network (AWS)
+
+Resources :     ELK — Ubuntu 20.04 — Elasticsearch + Kibana
+                Ubuntu — Ubuntu 20–04 — Filebeat, Packetbeat, Auditbeat OR
+                Win10 — Windows 10 — Auditbeat, Packetbeat, Winlogbeat
+
+Network Requirements : TAP / SPAN port, forwarding data to log forwarder, restrictions on log forwarder in a segregated subnet (should not be able to contact other devices)
+
+
+OpenVPN Server (As gateway to cloud services)
+- Log in as administrator, replace host IP with dynamic public IPv4 IP address provided at start up of EC2 instance (to be replaced with Elastic IP once Home is set up)
+- Log in as user, recreate ovpn file and attempt log in on log forwarder
+
+Set up Log Forwarder (Not done)
+- Set up OVPN, on start up connect to OVPN with relevant profile
+- Set up Filebeat, Packetbeat and Audit beat, start all on start up
+- Forward data to internal ELK SIEM on AWS VPC
+
+Set up ELK SIEM
+- Set up EC2 with correct SG, not exposed to internet (Done)
+- Set up Elasticsearch + Kibana, bootstrap to start on start up (Bootstrap done)
+- Integrate Log Forwarder to SIEM, set up alerts and rules (Not done)
+
+https://itnext.io/how-to-elastic-siem-part-1-a39167b8bd23
+https://medium.com/@zorteran/how-to-elastic-siem-part-2-bf0940f745e5
