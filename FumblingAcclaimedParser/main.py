@@ -108,7 +108,7 @@ def extract_data(filename):
       guest_nice_cal.append(guest_nice[counter]-guest_nice[counter-1])
       Total_Idle_cal.append(idle_cal[counter]+iowait_cal[counter])
       Total_Used_cal.append(user_cal[counter]+nice_cal[counter]+system_cal[counter]+iowait_cal[counter]+irq_cal[counter]+softirq_cal[counter]+steal_cal[counter]+guest_cal[counter]+guest_nice_cal[counter])
-      Total_Idle_Percent.append(str(Total_Idle_cal[counter] / (Total_Idle_cal[counter]+Total_Used_cal[counter]) * 100)+'%')
+      Total_Idle_Percent.append(str(Total_Idle_cal[counter] / (Total_Idle_cal[counter]+Total_Used_cal[counter]) * 100) +'%')
       Total_Used_Percent.append(str(Total_Used_cal[counter] / (Total_Idle_cal[counter]+Total_Used_cal[counter]) * 100) +'%')
     counter += 1
 
