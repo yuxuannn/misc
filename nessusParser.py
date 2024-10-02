@@ -18,7 +18,7 @@ orig_df = df
 df = df.drop_duplicates(subset=['Name', 'Host', 'Port', 'CVE'])
 
 #remove duplicate hosts in each finding (NaN)
-df = df.sort_values(by=['Name', 'Host', 'Port'], ascending=True)
+df = df.sort_values(by=['Name', 'Host', 'Port', 'CVE'], ascending=True)
 df['Host'] = df['Host'].mask(df.duplicated(['Name', 'Host']))
 
 #add host+proc+port
