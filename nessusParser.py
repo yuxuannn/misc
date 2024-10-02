@@ -4,7 +4,7 @@ import glob
 import pandas as pd
 
 #change as necessary
-os.chdir("/mnt/phryne/")
+os.chdir("/mnt/hgfs/phryne/")
 
 #set extension to csv, grab all .csv files in working directory
 extension = 'csv'
@@ -15,7 +15,7 @@ df = pd.concat([pd.read_csv(f) for f in all_filenames ])
 orig_df = df
 
 #drop duplicate findings from recurring scans
-df = df.drop_duplicates(subset=['Name', 'Host', 'Port'])
+df = df.drop_duplicates(subset=['Name', 'Host', 'Port', 'CVE'])
 
 #remove duplicate hosts in each finding (NaN)
 df = df.sort_values(by=['Name', 'Host', 'Port'], ascending=True)
